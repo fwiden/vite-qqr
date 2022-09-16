@@ -106,58 +106,66 @@ body {
       }
     }
 
-    .main {
-      width: 800px;
-      position: absolute;
-      margin-top: -25px;
-      margin-left: -400px;
-      top: 20%;
-      left: 50%;
+    .qr-page {
 
-      .main-heading {
-        color: $base-color;
+      padding: 1rem 0;
+
+      .main {
+        width: 800px;
+        position: absolute;
+        margin-top: -25px;
+        margin-left: -400px;
+        top: 20%;
+        left: 50%;
+  
+        .main-heading {
+          color: $base-color;
+        }
+  
+        .button {
+          background-color: white;
+          color: black;
+          border: 2px solid #008cba;
+          padding: 20px;
+          text-decoration: none;
+        }
+  
+        .button:hover {
+          background-color: #008cba;
+          color: white;
+        }
+        
+        .qr-button {
+          margin-top: 1rem;
+        }
+  
+        .download-link {
+          color: blue;
+        }
+  
+        .qr-image {
+          display: block;
+          width: 100%;
+          max-width: 480px;
+          height: auto;
+          margin: 2rem auto;
+        }
+  
+        input {
+          appearance: none;
+          outline: none;
+          border: none;
+          background: #eee;
+          width: 100%;
+          max-width: 300px;
+          padding: 0.5rem 1rem;
+          margin-right: 1rem;
+        }
       }
 
-      .button {
-        background-color: white;
-        color: black;
-        border: 2px solid #008cba;
-        padding: 20px;
-        text-decoration: none;
-      }
-
-      .button:hover {
-        background-color: #008cba;
-        color: white;
-      }
-      
-      .qr-button {
-        margin-top: 1rem;
-      }
-
-      .download-link {
-        color: blue;
-      }
-
-      .qr-image {
-        display: block;
-        width: 100%;
-        max-width: 480px;
-        height: auto;
-        margin: 2rem auto;
-      }
-
-      input {
-        appearance: none;
-        outline: none;
-        border: none;
-        background: #eee;
-        width: 100%;
-        max-width: 300px;
-        padding: 0.5rem 1rem;
-        margin-right: 1rem;
-      }
     }
+
+   
 
     header {
       position: absolute;
