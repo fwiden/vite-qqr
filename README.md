@@ -38,4 +38,4 @@
 
 If there are problems with legacy warnings during intsallation. Check your NPM version again and redo the above steps.
 
-- Reach out to "fredrik.wideng@@martinservera.se" or Fredrik Widén over teams
+
