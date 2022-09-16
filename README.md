@@ -1,8 +1,5 @@
 # vite-qqr
 
-##### (Caution: this project is paused until further notice)
-
-# IAM application for Martin & Servera
 
 ## Requirements
 
