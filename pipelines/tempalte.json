@@ -1,0 +1,71 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "environment": {
+        "type": "string"
+      },
+      "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]",
+        "metadata": {
+          "description": "The location in which the resources should be deployed."
+        }
+      },
+      "alwaysOn": {
+        "type": "bool"
+      },
+      "linuxFxVersion": {
+        "type": "string"
+      },
+      "clientAffinityEnabled": {
+        "type": "bool",
+        "defaultValue": false
+      },
+      "appCommandLine": {
+        "type": "string",
+        "defaultValue": ""
+      },
+      "serverFarmId": {
+        "type": "string"
+      }
+    },
+    "variables": {
+      "name": "[concat('webapp-', parameters('environment'), '-customeranalysis-app')]"
+    },
+    "resources": [
+      {
+        "apiVersion": "2018-11-01",
+        "name": "[variables('name')]",
+        "type": "Microsoft.Web/sites",
+        "location": "[parameters('location')]",
+        "properties": {
+          "name": "[variables('name')]",
+          "siteConfig": {
+            "appSettings": [],
+            "linuxFxVersion": "[parameters('linuxFxVersion')]",
+            "alwaysOn": "[parameters('alwaysOn')]",
+            "ftpsState": "FtpsOnly",
+            "appCommandLine": "[parameters('appCommandLine')]"
+          },
+          "serverFarmId": "[parameters('serverFarmId')]",
+          "clientAffinityEnabled": "[parameters('clientAffinityEnabled')]",
+          "httpsOnly": true
+        }
+      }
+    ],
+    "outputs": {
+      "resourceID": {
+        "type": "string",
+        "value": "[resourceId('Microsoft.Web/sites', variables('name'))]"
+      },
+      "siteName": {
+        "type": "string",
+        "value": "[variables('name')]"
+      },
+      "possibleOutboundIps": {
+        "type": "array",
+        "value": "[split(reference(resourceId('Microsoft.Web/sites', variables('name')), '2018-02-01').possibleOutboundIpAddresses, ',')]"
+      }
+    }
+  }
